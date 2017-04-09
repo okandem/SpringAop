@@ -1,5 +1,6 @@
 package org.okan.java.service;
 
+import org.okan.java.aspect.Loggable;
 import org.okan.java.model.Circle;
 import org.okan.java.model.Triangle;
 
@@ -10,6 +11,7 @@ public class ShapeService {
   private Circle circle;
   private Triangle triangle;
 
+  @Loggable
   public Circle getCircle() {
     return circle;
   }
