@@ -10,23 +10,9 @@ import org.aspectj.lang.annotation.*;
 @Aspect
 public class LoggingAspect {
 
-  @Before("allCircleMethods()")
-  public void LoggingAdvice(JoinPoint joinPoint){
 
-  }
 
-  @AfterReturning(pointcut = "args(name)",returning = "returnString")
-  public void stringArgumentMethods(String name, Object returnString){
-    System.out.println("A method that takes String arguments has been called "+name+
-        "The output value is "+ returnString );
-  }
-
-  @AfterThrowing(pointcut = "args(name)",throwing = "ex")
-  public void exceptionAdvice(String name,Exception ex ){
-    System.out.println("An exception has been thrown "+ ex);
-  }
-
-  @Around("@annotation(org.okan.java.aspect.Loggable)")
+  @Around("allGetters()")
   public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
 
     Object returnValue=null;
@@ -47,7 +33,8 @@ public class LoggingAspect {
   @Pointcut("execution(* get*())")
   public void allGetters(){}
 
-  @Pointcut("within(org.okan.java.model.Circle)")
-  public void allCircleMethods(){}
 
+  public void loggingAdvice() {
+    System.out.println("logging from the advice.");
+  }
 }
