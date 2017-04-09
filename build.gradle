@@ -1,0 +1,25 @@
+group 'SpringAop'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin:'application'
+mainClassName = "org.koushik.javabrains.AopMain"
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.10.6.RELEASE'
+    compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.10'
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.10'
+    compile group: 'aopalliance', name: 'aopalliance', version: '1.0'
+    compile group: 'cglib', name: 'cglib', version: '2.2.2'
+    compile group: 'asm', name: 'asm', version: '3.3.1'
+
+
+    testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.5.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
